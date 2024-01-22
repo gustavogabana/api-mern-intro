@@ -4,12 +4,14 @@
   "description": "API for getting started with MERN",
   "main": "index.js",
   "scripts": {
-    "start": "node index"
+    "start": "node index",
+    "dev": "nodemon index"
   },
   "keywords": [],
   "author": "Gustavo Gabana",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.18.2"
+    "express": "^4.18.2",
+    "nodemon": "^3.0.3"
   }
 }

@@ -1,6 +1,6 @@
 const route = require('express').Router()
-const hello = require('../controllers/user.controller')
+const userController = require('../controllers/user.controller')
 
-route.get('/', hello)
+route.post('/user', userController.create)
 
 module.exports = route

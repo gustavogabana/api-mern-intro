@@ -1,5 +1,6 @@
-const hello = (req, res) => {
-    res.send('Hello, Express!')
+const create = (req, res) => {
+    const user = req.body
+    res.json(user)
 }
 
-module.exports = hello
+module.exports = { create }

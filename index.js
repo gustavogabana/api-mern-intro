@@ -1,9 +1,11 @@
 import express from 'express'
 import route from './src/routes/user.route.js'
 import connectDatabase from './src/database/db.js'
+import dotenv from 'dotenv'
 
 const app = express()
-const port = 3000
+const port = process.env.PORT || 3000
+dotenv.config()
 connectDatabase()
 
 // routes: http method, name, callback function

@@ -1,5 +1,6 @@
 import mongoose from 'mongoose'
 import userService from '../services/user.service.js'
+import loginService from '../services/auth.service.js'
 
 const validId = (req, res, next) => {
     try {
@@ -28,4 +29,19 @@ const validUser = async (req, res, next) => {
     }
 }
 
-export default { validId, validUser }
+const validEmail = async (req, res, next) => {
+    try {
+        const { email, password } = req.body
+        const user = await loginService(email)
+        if (!user) {
+            return res.status(404).send({message: 'E-mail or Password not found'})
+        }
+        req.email = email
+        req.password = password
+        next()
+    } catch (err) {
+        return res.status(500).send({message: err.message})
+    }
+}
+
+export default { validId, validUser, validEmail }

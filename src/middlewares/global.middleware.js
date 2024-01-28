@@ -1,6 +1,6 @@
 import mongoose from 'mongoose'
 import userService from '../services/user.service.js'
-import loginService from '../services/auth.service.js'
+import { loginService } from '../services/auth.service.js'
 
 const validId = (req, res, next) => {
     try {
